@@ -1,4 +1,5 @@
 import './App.css';
+import GlobalSales from './containers/GlobalSales';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
           <input className="input input-sales" type="number" id="minimum-sales" />
           <button className="button button-sales">FILTER RESULTS</button>
         </section>
+        <GlobalSales />
       </div>
     </main>
   );

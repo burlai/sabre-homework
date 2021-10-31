@@ -12,7 +12,7 @@ Use the following design mock up as a reference for the app look and feel:
 - You must build this app with component re-usability in mind. Each functional component you build must be customizable by props with little to no hard-coded data or configurations beyond default values.
 - You can use React Hooks or React Classes or both.
 
-#### Functional 
+#### Functional
 
 1. Load the provided client data on the app's first load.
 2. Display the client data in standard table.
@@ -28,6 +28,6 @@ Use the following design mock up as a reference for the app look and feel:
     - Find what percentage of total clients these high performers represent.
 10. Flag customers with the most monthly sales with an animated icon. Use an icon and animation pattern of your choice.
 
-#### Visual 
+#### Visual
 
 Keep the page as close to the design as you can. Feel free to use custom CSS or a CSS toolkit.
