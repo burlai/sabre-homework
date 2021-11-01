@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import Input from './Input';
-import Button from './Button';
-import Label from './Label';
-
 const initialState = (filter) => {
     return {
         data: {
-            company: filter.company || ''
+            company: filter.company || '',
+            minimumSales: filter.minimumSales || ''
         }
     }
 };
@@ -18,6 +15,7 @@ class Filter extends Component {
     constructor(props) {
         super(props);
         this.state = initialState(props.filter);
+        this.handleChange = this.handleChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
     }
 
@@ -25,6 +23,14 @@ class Filter extends Component {
         this.setState({
             data: {
                 ...this.state.data, [id]: value
+            }
+        });
+    }
+
+    handleChange(event) {
+        this.setState({
+            data: {
+                ...this.state.data, [event.target.id]: event.target.value
             }
         });
     }
@@ -46,11 +52,10 @@ class Filter extends Component {
         return (
             <section className="sales-filter">
                 <form submit={this.onSubmit}>
-                    <Input className="input input-company" type="text" form={this} id="company" placeholder="Company" />
-                    <Label text="Minimum Sales ($)" className="label label-sales" htmlFor="minimum-sales" />
-                    <Input className="input input-sales" type="number" form={this} id="minimum-sales" />
-                    <Button text="FILTER RESULTS" className="button button-sales" onClick={() => this.onSearch()} color="primary"><i className="icon-magnifier pr-1" /></Button>
-                    {/* <Button text="REFRESH DATA" className="button" onClick={() => this.onResetSearch()}></Button> */}
+                    <input className="input input-company" type="text" value={this.state.data.company} onChange={this.handleChange} id="company" placeholder="Company" />
+                    <label className="label label-sales" htmlFor="minimum-sales">Minimum Sales ($)</label>
+                    <input className="input input-sales" type="number" value={this.state.data.minimumSales} onChange={this.handleChange} form={this} id="minimumSales" />
+                    <button className="button button-sales" onClick={() => this.onSearch()}><i className="icon-magnifier pr-1" />FILTER RESULTS</button>
                 </form>
             </section>
         );

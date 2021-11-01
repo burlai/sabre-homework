@@ -27,13 +27,15 @@ class GlobalSales extends Component {
 
     getDefaultFilter() {
         return {
-            companyName: ''
+            company: '',
+            minimumSales: ''
         }
     }
 
     resetFilter() {
         return {
-            companyName: ''
+            company: '',
+            minimumSales: ''
         }
     }
 
@@ -47,15 +49,22 @@ class GlobalSales extends Component {
     }
 
     onPaginationChange(activePage) {
-        this.setState({ ...this.state.filter, paging: { size: this.state.paging.size, active: activePage } }, () => {
-            this.props.getSales(this.state.filter, { size: this.state.paging.size, active: activePage });
-        });
+        this.setState({ ...this.state.filter, paging: { size: this.state.paging.size, active: activePage } });
     }
 
     render() {
         let pages = 0;
+        let data = this.props.sales.data;
+        if (this.state.filter.company.length > 0) {
+            data = data.filter((element) => element.company === this.state.filter.company);
+        }
+
+        if (this.state.filter.minimumSales.length > 0) {
+            data = data.filter((element) => element.sales > this.state.filter.minimumSales);
+        }
+
         if (this.props.sales.data) {
-            const elementsCount = this.props.sales.data.length;
+            const elementsCount = data.length;
             pages = Math.ceil(elementsCount / this.state.paging.size);
         }
 
@@ -66,16 +75,20 @@ class GlobalSales extends Component {
                         <Filter filter={this.state.filter}
                             onSearch={(e) => this.onSearch(e)}
                             onResetSearch={(e) => this.onResetSearch(e)} />
-                        <h2 className="mt-20 mb-10 heading-h2">Sales Data</h2>
+                        <div className="p-relative">
+                            <h2 className="mt-20 mb-10 heading-h2">Sales Data</h2>
+                            <button className="button button-link button-refresh-data" onClick={() => this.onResetSearch()}>REFRESH DATA</button>
+                        </div>
                         <Loader visible={!!this.props.loader.data} dataLoaded={!!this.props.sales.data}>
                             <Table
                                 headers={['NAME', 'COMPANY', 'MONTHLY SALES']}
-                                data={this.props.sales.data ? Object.values(this.props.sales.data) : []}
+                                data={data}
                                 activePage={this.state.paging.active}
-                                pageSize={this.state.paging.size} />
+                                pageSize={this.state.paging.size}
+                                filter={this.state.filter} />
                             <div className="mt-20 mb-10">
                                 <Pagination pages={pages || 0} paginationId="itemsPagination"
-                                    maxButtons={10}
+                                    maxButtons={4}
                                     activePage={this.state.paging.active}
                                     onPageSelected={(page) => this.onPaginationChange(page)} />
                             </div>

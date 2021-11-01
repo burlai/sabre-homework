@@ -4,7 +4,6 @@ import axios from 'axios';
 import * as ActionIds from '../actions/ActionIds';
 
 function* salesSaga() {
-  console.log('salesSaga')
   yield put({ type: ActionIds.SET_LOADER });
   try {
     const response = yield axios.get('https://mocki.io/v1/465b097b-a9a9-4483-bb83-cb67228427dc');

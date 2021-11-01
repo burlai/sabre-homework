@@ -2,14 +2,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Pagination = ({ activePage, pages, maxButtons, onPageSelected, prevClass, nextClass }) => {
+const Pagination = ({ activePage, pages, maxButtons, onPageSelected }) => {
 
-  const prev = <span className={prevClass ? prevClass : 'pagination-prev'}>
+  const prev = <span className="pagination-prev">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" className="bi bi-chevron-left" viewBox="0 0 16 16">
                         <path fillRule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"></path>
                     </svg>
               </span>;
-  const next = (<span className={nextClass ? nextClass : 'pagination-next'}>
+  const next = (<span className="pagination-next">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-chevron-right" viewBox="0 0 16 16">
                         <path fillRule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
                     </svg>
@@ -103,10 +103,8 @@ const Pagination = ({ activePage, pages, maxButtons, onPageSelected, prevClass, 
 Pagination.propTypes = {
   activePage: PropTypes.number,
   maxButtons: PropTypes.number.isRequired,
-  nextClass: PropTypes.string,
   onPageSelected: PropTypes.func.isRequired,
   pages: PropTypes.number.isRequired,
-  prevClass: PropTypes.string
 };
 
 export default Pagination;

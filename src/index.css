@@ -83,6 +83,18 @@ code {
   cursor: pointer;
 }
 
+.button-link {
+  background-color: transparent;
+  color: #111;
+  border: none;
+}
+
+.button-refresh-data {
+  position: absolute;
+  right: 0;
+  top: 3px;
+}
+
 .input-company {
   display: block;
   position: relative;
@@ -212,7 +224,7 @@ code {
   font-size: 16px;
   font-weight: bold;
   color: #007b94;
-  padding: 5px;
+  padding: 7px;
   cursor: pointer;
   position: relative;
   margin: 0 2px;
@@ -224,12 +236,12 @@ code {
   top: 0;
   color: #fff;
   background-color: #007b94;
-  height: 28px;
-  width: 28px;
+  height: 31px;
+  width: 31px;
   border-radius: 50%;
   display: inline-block;
   text-align: center;
-  padding: 5px;
+  padding: 7px;
 }
 
 .mt-20 {
@@ -259,7 +271,7 @@ code {
 
 .pagination-prev {
   position: relative;
-  top: 3px;
+  top: 2px;
   color: #007b94;
   cursor: pointer;
 }
@@ -270,7 +282,7 @@ code {
 
 .pagination-next {
   position: relative;
-  top: 3px;
+  top: 2px;
   color: #007b94;
   cursor: pointer;
 }
@@ -295,6 +307,7 @@ code {
   -webkit-box-shadow: 0px 5px 20px -7px rgba(198, 193, 193, 1);
   -moz-box-shadow: 0px 5px 20px -7px rgba(198, 193, 193, 1);
   box-shadow: 0px 5px 20px -7px rgba(198, 193, 193, 1);
+  table-layout: fixed;
 }
 
 .table td, .table th {
@@ -304,6 +317,12 @@ code {
 
 .table th {
   color: #777;
+}
+
+.table td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow:ellipsis;
 }
 
 .table tr:last-child td {
@@ -317,4 +336,8 @@ code {
 
 .table tbody tr td:last-child {
   text-align: right;
+}
+
+.p-relative {
+  position: relative;
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Table = ({ headers, data, activePage, pageSize }) => {
+const Table = ({ headers, data, activePage, pageSize, filter }) => {
     const tableHeader = headers.map((element, idx) => (
         <th key={idx}>{element}</th>
     ));
@@ -21,7 +21,7 @@ const Table = ({ headers, data, activePage, pageSize }) => {
     });
 
     if (tableData.length < 1) {
-        tableData = (<div>No data available</div>);
+        tableData = (<span>No data available</span>);
     }
 
     return (
@@ -36,6 +36,7 @@ const Table = ({ headers, data, activePage, pageSize }) => {
 Table.propTypes = {
     activePage: PropTypes.number,
     data: PropTypes.array.isRequired,
+    filter: PropTypes.object,
     headers: PropTypes.array.isRequired,
     pageSize: PropTypes.number
 };
