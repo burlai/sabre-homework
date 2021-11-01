@@ -1,4 +1,4 @@
-import * as ActionIds from 'actions/ActionIds';
+import * as ActionIds from '../actions/ActionIds';
 
 export const sales = (state, action) => {
   if (action.type === ActionIds.SALES) {

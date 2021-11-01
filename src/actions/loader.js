@@ -1,4 +1,4 @@
-import * as ActionIds from 'actions/ActionIds';
+import * as ActionIds from './ActionIds';
 
 export function setLoader() {
   return { type: ActionIds.SET_LOADER }
