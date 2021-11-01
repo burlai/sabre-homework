@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { getSales } from '../actions';
-// import { Filter, Loader, SalesData } from '../components';
+import Filter from '../components/Filter';
 
 class GlobalSales extends Component {
 
@@ -55,14 +55,14 @@ class GlobalSales extends Component {
         return (
             <section>
                 <div id="GlobalSales">
-                    {/* <div>
+                    <div>
                         <Filter filter={this.state.filter}
                             onSearch={(e) => this.onSearch(e)}
                             onResetSearch={(e) => this.onResetSearch(e)} />
-                        <Loader visible={!!this.props.loader.data} dataLoaded={!!this.props.sales.data}>
-                            <SalesData sales={this.props.sales.data ? Object.values(this.props.sales.data) : []} />
-                        </Loader>
-                    </div> */}
+                        {/* <Loader visible={!!this.props.loader.data} dataLoaded={!!this.props.sales.data}>
+                            <SalesData sales={this.props.sales.data ? Object.values(this.props.sales.data) : []} /> */}
+                        {/* </Loader> */}
+                    </div>
                 </div>
             </section>
         );
