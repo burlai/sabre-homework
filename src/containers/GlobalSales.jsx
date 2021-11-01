@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import { getSales } from '../actions';
 import Filter from '../components/Filter';
+import Loader from '../components/Loader';
 
 class GlobalSales extends Component {
 
@@ -59,9 +60,10 @@ class GlobalSales extends Component {
                         <Filter filter={this.state.filter}
                             onSearch={(e) => this.onSearch(e)}
                             onResetSearch={(e) => this.onResetSearch(e)} />
-                        {/* <Loader visible={!!this.props.loader.data} dataLoaded={!!this.props.sales.data}>
-                            <SalesData sales={this.props.sales.data ? Object.values(this.props.sales.data) : []} /> */}
-                        {/* </Loader> */}
+                        <Loader visible={!!this.props.loader.data} dataLoaded={!!this.props.sales.data}>
+                            <div>data loaded</div>
+                            {/* <SalesData sales={this.props.sales.data ? Object.values(this.props.sales.data) : []} /> */} */}
+                        </Loader>
                     </div>
                 </div>
             </section>
