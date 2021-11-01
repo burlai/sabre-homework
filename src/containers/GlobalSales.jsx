@@ -85,7 +85,9 @@ class GlobalSales extends Component {
                                 data={data}
                                 activePage={this.state.paging.active}
                                 pageSize={this.state.paging.size}
-                                filter={this.state.filter} />
+                                filter={this.state.filter}
+                                pageSumText="Page Sales Subtotal"
+                                totalSumText="Total Sales" />
                             <div className="mt-20 mb-10">
                                 <Pagination pages={pages || 0} paginationId="itemsPagination"
                                     maxButtons={4}

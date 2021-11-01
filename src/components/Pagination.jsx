@@ -83,7 +83,7 @@ const Pagination = ({ activePage, pages, maxButtons, onPageSelected }) => {
             e.preventDefault();
             onPageSelected(activePage - 1);
           }}>
-          {prev}
+          {(allPages.length > 1) ? prev : ''}
         </span>
       </span>
       {allPages}
@@ -94,7 +94,7 @@ const Pagination = ({ activePage, pages, maxButtons, onPageSelected }) => {
             e.preventDefault();
             onPageSelected(activePage + 1);
           }}>
-          {next}
+          {(allPages.length > 1) ? next : ''}
         </span>
       </span>
     </section>

@@ -26,7 +26,7 @@ code {
   position: relative;
   margin: 40px auto;
   padding: 20px;
-  width: 370px;
+  width: 400px;
   height: 900px;
   background-color: #f6f6f7;
 }
@@ -322,10 +322,10 @@ code {
 .table td {
   white-space: nowrap;
   overflow: hidden;
-  text-overflow:ellipsis;
+  text-overflow: ellipsis;
 }
 
-.table tr:last-child td {
+.table tfoot tr:last-child td {
   border-bottom: none;
 }
 
@@ -334,7 +334,21 @@ code {
   border-bottom: 2px solid #ddd;
 }
 
-.table tbody tr td:last-child {
+.table tbody tr th:last-child, .table tbody tr td:last-child {
+  text-align: right;
+}
+
+.table tfoot {
+  font-weight: bold;
+  background-color: #f6f6f7;
+  border-radius: 10px;
+}
+
+.table tfoot td {
+  overflow: visible;
+}
+
+.table tfoot tr td:last-child {
   text-align: right;
 }
 
