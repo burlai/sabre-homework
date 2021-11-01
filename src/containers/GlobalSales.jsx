@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { getSales } from '../actions';
 import Filter from '../components/Filter';
 import Loader from '../components/Loader';
+import Table from '../components/Table';
 
 class GlobalSales extends Component {
 
@@ -62,7 +63,9 @@ class GlobalSales extends Component {
                             onResetSearch={(e) => this.onResetSearch(e)} />
                         <Loader visible={!!this.props.loader.data} dataLoaded={!!this.props.sales.data}>
                             <div>data loaded</div>
-                            {/* <SalesData sales={this.props.sales.data ? Object.values(this.props.sales.data) : []} /> */}
+                            <Table
+                                headers={['NAME', 'COMPANY', 'MONTHLY SALES']}
+                                data={this.props.sales.data ? Object.values(this.props.sales.data) : []} />
                         </Loader>
                     </div>
                 </div>

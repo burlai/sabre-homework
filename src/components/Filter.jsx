@@ -50,7 +50,7 @@ class Filter extends Component {
                     <Label text="Minimum Sales ($)" className="label label-sales" htmlFor="minimum-sales" />
                     <Input className="input input-sales" type="number" form={this} id="minimum-sales" />
                     <Button text="FILTER RESULTS" className="button button-sales" onClick={() => this.onSearch()} color="primary"><i className="icon-magnifier pr-1" /></Button>
-                    <Button text="REFRESH DATA" className="button" onClick={() => this.onResetSearch()}></Button>
+                    {/* <Button text="REFRESH DATA" className="button" onClick={() => this.onResetSearch()}></Button> */}
                 </form>
             </section>
         );
