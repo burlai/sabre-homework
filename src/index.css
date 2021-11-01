@@ -26,8 +26,8 @@ code {
   position: relative;
   margin: 40px auto;
   padding: 20px;
-  width: 340px;
-  height: 700px;
+  width: 370px;
+  height: 900px;
   background-color: #f6f6f7;
 }
 
@@ -37,6 +37,13 @@ code {
   margin: 0;
   font-size: 30px;
   padding-bottom: 20px;
+}
+
+.heading-h2 {
+  font-family: 'Roboto Condensed', sans-serif;
+  text-align: left;
+  margin: 0;
+  font-size: 26px;
 }
 
 .sales-filter {
@@ -278,4 +285,36 @@ code {
 
 .disabled .pagination-next svg {
   fill: #777;
+}
+
+.table {
+  background-color: #fff;
+  width: 100%;
+  border-radius: 10px;
+  border-collapse: collapse;
+  -webkit-box-shadow: 0px 5px 20px -7px rgba(198, 193, 193, 1);
+  -moz-box-shadow: 0px 5px 20px -7px rgba(198, 193, 193, 1);
+  box-shadow: 0px 5px 20px -7px rgba(198, 193, 193, 1);
+}
+
+.table td, .table th {
+  border-bottom: 1px solid #ddd;
+  padding: 10px 20px;
+}
+
+.table th {
+  color: #777;
+}
+
+.table tr:last-child td {
+  border-bottom: none;
+}
+
+.table tbody th {
+  text-align: left;
+  border-bottom: 2px solid #ddd;
+}
+
+.table tbody tr td:last-child {
+  text-align: right;
 }

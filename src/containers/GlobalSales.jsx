@@ -66,16 +66,19 @@ class GlobalSales extends Component {
                         <Filter filter={this.state.filter}
                             onSearch={(e) => this.onSearch(e)}
                             onResetSearch={(e) => this.onResetSearch(e)} />
+                        <h2 className="mt-20 mb-10 heading-h2">Sales Data</h2>
                         <Loader visible={!!this.props.loader.data} dataLoaded={!!this.props.sales.data}>
-                            <div className="mt-10 mb-10">
-                            <Pagination pages={pages || 0} paginationId="itemsPagination"
-                                maxButtons={10}
-                                activePage={this.state.paging.active}
-                                onPageSelected={(page) => this.onPaginationChange(page)} />
-                            </div>
                             <Table
                                 headers={['NAME', 'COMPANY', 'MONTHLY SALES']}
-                                data={this.props.sales.data ? Object.values(this.props.sales.data) : []} />
+                                data={this.props.sales.data ? Object.values(this.props.sales.data) : []}
+                                activePage={this.state.paging.active}
+                                pageSize={this.state.paging.size} />
+                            <div className="mt-20 mb-10">
+                                <Pagination pages={pages || 0} paginationId="itemsPagination"
+                                    maxButtons={10}
+                                    activePage={this.state.paging.active}
+                                    onPageSelected={(page) => this.onPaginationChange(page)} />
+                            </div>
                         </Loader>
                     </div>
                 </div>
