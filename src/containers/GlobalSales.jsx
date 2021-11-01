@@ -6,13 +6,18 @@ import { getSales } from '../actions';
 import Filter from '../components/Filter';
 import Loader from '../components/Loader';
 import Table from '../components/Table';
+import Pagination from '../components/Pagination';
 
 class GlobalSales extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            filter: this.getDefaultFilter()
+            filter: this.getDefaultFilter(),
+            paging: {
+                size: 10,
+                active: 1
+            }
         };
     }
 
@@ -49,9 +54,9 @@ class GlobalSales extends Component {
 
     render() {
         let pages = 0;
-        if (this.props.sales.data && this.props.sales.data.total) {
-            const totalPageCount = this.props.sales.data.total;
-            pages = Math.ceil(totalPageCount / this.state.paging.size);
+        if (this.props.sales.data) {
+            const elementsCount = this.props.sales.data.length;
+            pages = Math.ceil(elementsCount / this.state.paging.size);
         }
 
         return (
@@ -62,7 +67,12 @@ class GlobalSales extends Component {
                             onSearch={(e) => this.onSearch(e)}
                             onResetSearch={(e) => this.onResetSearch(e)} />
                         <Loader visible={!!this.props.loader.data} dataLoaded={!!this.props.sales.data}>
-                            <div>data loaded</div>
+                            <div className="mt-10 mb-10">
+                            <Pagination pages={pages || 0} paginationId="itemsPagination"
+                                maxButtons={10}
+                                activePage={this.state.paging.active}
+                                onPageSelected={(page) => this.onPaginationChange(page)} />
+                            </div>
                             <Table
                                 headers={['NAME', 'COMPANY', 'MONTHLY SALES']}
                                 data={this.props.sales.data ? Object.values(this.props.sales.data) : []} />

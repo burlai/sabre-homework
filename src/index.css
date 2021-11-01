@@ -28,7 +28,7 @@ code {
   padding: 20px;
   width: 340px;
   height: 700px;
-  background-color: #f5f5f5;
+  background-color: #f6f6f7;
 }
 
 .heading {
@@ -55,7 +55,7 @@ code {
   padding: 10px;
   border-radius: 8px;
   border: 1px solid #999;
-  background-color: #f5f5f5;
+  background-color: #f6f6f7;
 }
 
 .label {
@@ -68,7 +68,7 @@ code {
 .button {
   font-family: 'Roboto Condensed', sans-serif;
   font-weight: bold;
-  background-color: #333;
+  background-color: #212125;
   color: #fff;
   border: 3px solid #000;
   border-radius: 6px;
@@ -199,4 +199,83 @@ code {
   100% {
     transform: rotate(360deg);
   }
+}
+
+.pagination-item {
+  font-size: 16px;
+  font-weight: bold;
+  color: #007b94;
+  padding: 5px;
+  cursor: pointer;
+  position: relative;
+  margin: 0 2px;
+}
+
+.pagination-item.active {
+  position: relative;
+  left: 0;
+  top: 0;
+  color: #fff;
+  background-color: #007b94;
+  height: 28px;
+  width: 28px;
+  border-radius: 50%;
+  display: inline-block;
+  text-align: center;
+  padding: 5px;
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+.mt-10 {
+  margin-top: 10px;
+}
+
+.mb-10 {
+  margin-bottom: 10px;
+}
+
+.disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+.pagination {
+  text-align: center;
+}
+
+.pagination-prev {
+  position: relative;
+  top: 3px;
+  color: #007b94;
+  cursor: pointer;
+}
+
+.pagination-prev svg {
+  fill: #007b94;
+}
+
+.pagination-next {
+  position: relative;
+  top: 3px;
+  color: #007b94;
+  cursor: pointer;
+}
+
+.pagination-next svg {
+  fill: #007b94;
+}
+
+.disabled .pagination-prev svg {
+  fill: #777;
+}
+
+.disabled .pagination-next svg {
+  fill: #777;
 }
