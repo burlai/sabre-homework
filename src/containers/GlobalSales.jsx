@@ -62,7 +62,7 @@ class GlobalSales extends Component {
                             onResetSearch={(e) => this.onResetSearch(e)} />
                         <Loader visible={!!this.props.loader.data} dataLoaded={!!this.props.sales.data}>
                             <div>data loaded</div>
-                            {/* <SalesData sales={this.props.sales.data ? Object.values(this.props.sales.data) : []} /> */} */}
+                            {/* <SalesData sales={this.props.sales.data ? Object.values(this.props.sales.data) : []} /> */}
                         </Loader>
                     </div>
                 </div>

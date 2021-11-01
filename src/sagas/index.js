@@ -1,1 +1,1 @@
-export { salesWatcherSaga } from 'sagas/salesSaga';
+export { salesWatcherSaga } from './salesSaga';
