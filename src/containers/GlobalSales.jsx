@@ -7,6 +7,7 @@ import Filter from '../components/Filter';
 import Loader from '../components/Loader';
 import Table from '../components/Table';
 import Pagination from '../components/Pagination';
+import TableAverage from '../components/TableAverage';
 
 class GlobalSales extends Component {
 
@@ -69,34 +70,37 @@ class GlobalSales extends Component {
         }
 
         return (
-            <section>
-                <div id="GlobalSales">
-                    <div>
-                        <Filter filter={this.state.filter}
-                            onSearch={(e) => this.onSearch(e)}
-                            onResetSearch={(e) => this.onResetSearch(e)} />
-                        <div className="p-relative">
-                            <h2 className="mt-20 mb-10 heading-h2">Sales Data</h2>
-                            <button className="button button-link button-refresh-data" onClick={() => this.onResetSearch()}>REFRESH DATA</button>
-                        </div>
-                        <Loader visible={!!this.props.loader.data} dataLoaded={!!this.props.sales.data}>
-                            <Table
-                                headers={['NAME', 'COMPANY', 'MONTHLY SALES']}
-                                data={data}
-                                activePage={this.state.paging.active}
-                                pageSize={this.state.paging.size}
-                                filter={this.state.filter}
-                                pageSumText="Page Sales Subtotal"
-                                totalSumText="Total Sales" />
-                            <div className="mt-20 mb-10">
-                                <Pagination pages={pages || 0} paginationId="itemsPagination"
+            <section id="GlobalSales">
+                <Filter filter={this.state.filter}
+                        onSearch={(e) => this.onSearch(e)}
+                        onResetSearch={(e) => this.onResetSearch(e)} />
+                <div className="p-relative">
+                    <h2 className="mt-20 mb-10 heading-h2">Sales Data</h2>
+                    <button className="button button-link button-refresh-data" onClick={() => this.onResetSearch()}>REFRESH DATA</button>
+                </div>
+                <Loader visible={!!this.props.loader.data} dataLoaded={!!this.props.sales.data}>
+                    <Table
+                        headers={['NAME', 'COMPANY', 'MONTHLY SALES']}
+                        data={data}
+                        activePage={this.state.paging.active}
+                        pageSize={this.state.paging.size}
+                        filter={this.state.filter}
+                        pageSumText="Page Sales Subtotal"
+                        totalSumText="Total Sales" />
+                    <div className="mt-20 mb-10">
+                        <Pagination pages={pages || 0} paginationId="itemsPagination"
                                     maxButtons={4}
                                     activePage={this.state.paging.active}
                                     onPageSelected={(page) => this.onPaginationChange(page)} />
-                            </div>
-                        </Loader>
                     </div>
-                </div>
+                    <div className="p-relative mt-30 mb-20">
+                        <h2 className="heading-h2">Top Performers ($800+ / month)</h2>
+                    </div>
+                    <TableAverage data={data}
+                                boundaryNumber={800}
+                                averageNumberText="Number of Clients"
+                                averageSumText="Average Monthly Sales" />
+                </Loader>
             </section>
         );
     }

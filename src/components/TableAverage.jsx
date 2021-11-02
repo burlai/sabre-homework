@@ -1,0 +1,41 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+
+const TableAverage = ({ data, averageNumberText, averageSumText, boundaryNumber }) => {
+
+    let dataToRender = [];
+    if (boundaryNumber !== undefined) {
+        dataToRender = data.filter((element) => element.sales >= boundaryNumber);
+    } else {
+        dataToRender = data;
+    }
+
+    const sum = dataToRender.map((element) => element.sales).reduce((prev, next) => (prev + next), 0);
+    const average = sum / dataToRender.length;
+
+    return (
+        <section>
+            <table className="table">
+                <tbody>
+                    <tr>
+                        <td>{(averageSumText !== undefined) ? averageSumText : 'Number of Elements'}</td>
+                        <td>${Math.ceil(average)}</td>
+                    </tr>
+                    <tr>
+                        <td>{(averageNumberText !== undefined) ? averageNumberText : 'Average'}</td>
+                        <td>{dataToRender.length}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    );
+};
+
+TableAverage.propTypes = {
+    averageNumberText: PropTypes.string,
+    averageSumText: PropTypes.string,
+    boundaryNumber: PropTypes.number,
+    data: PropTypes.array.isRequired
+};
+
+export default TableAverage;
