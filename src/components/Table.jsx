@@ -11,7 +11,7 @@ const Table = ({ headers, data, activePage, pageSize, pageSumText, totalSumText 
         dataToRender = data.slice(((activePage - 1) * pageSize), (activePage * pageSize));
     }
 
-    let tableData = dataToRender.map((row, idx) => {
+    let tableBody = dataToRender.map((row, idx) => {
         delete row.id;
         return (
             <tr key={idx}>
@@ -27,7 +27,7 @@ const Table = ({ headers, data, activePage, pageSize, pageSumText, totalSumText 
     const pageSum = dataToRender.map((element) => element.sales).reduce((prev, next) => (prev + next), 0);
     const totalSum = data.map((element) => element.sales).reduce((prev, next) => (prev + next), 0);
 
-    if (tableData.length < 1) {
+    if (dataToRender.length < 1) {
         return <div>No data available</div>;
     }
 
@@ -37,7 +37,7 @@ const Table = ({ headers, data, activePage, pageSize, pageSumText, totalSumText 
             <col style={{width: 30}} />
                 <tbody>
                     <tr><th></th>{tableHeader}</tr>
-                    {tableData}
+                    {tableBody}
                 </tbody>
                 {(pageSumText !== undefined && totalSumText !== undefined) ? (
                     <tfoot className="text-dark-gray">

@@ -42,7 +42,7 @@ class GlobalSales extends Component {
 
     onSearch(filter) {
         this.setState({ filter });
-        this.props.getSales(filter, { size: this.state.paging.size, active: 1 });
+        this.props.getSales();
     }
 
     onResetSearch() {
@@ -122,8 +122,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        getSales: (filter, paging) => {
-            dispatch(getSales(filter, paging));
+        getSales: () => {
+            dispatch(getSales());
         }
     }
 };
