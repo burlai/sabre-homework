@@ -11,7 +11,6 @@ const TableAverage = ({ data, averageNumberText, averageSumText, boundaryNumber 
     }
 
     const sum = dataToRender.map((element) => element.sales).reduce((prev, next) => (prev + next), 0);
-    const average = sum / dataToRender.length;
 
     return (
         <section>
@@ -19,11 +18,11 @@ const TableAverage = ({ data, averageNumberText, averageSumText, boundaryNumber 
                 <tbody>
                     <tr>
                         <td>{(averageSumText !== undefined) ? averageSumText : 'Number of Elements'}</td>
-                        <td>${Math.ceil(average)}</td>
+                        <td>{(dataToRender.length > 0) ? `$${Math.ceil(sum / dataToRender.length)}` : '-'}</td>
                     </tr>
                     <tr>
                         <td>{(averageNumberText !== undefined) ? averageNumberText : 'Average'}</td>
-                        <td>{dataToRender.length}</td>
+                        <td>{(dataToRender.length > 0) ? dataToRender.length : '-'}</td>
                     </tr>
                 </tbody>
             </table>
@@ -35,7 +34,7 @@ TableAverage.propTypes = {
     averageNumberText: PropTypes.string,
     averageSumText: PropTypes.string,
     boundaryNumber: PropTypes.number,
-    data: PropTypes.array.isRequired
+    data: PropTypes.array
 };
 
 export default TableAverage;

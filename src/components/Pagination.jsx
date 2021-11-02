@@ -18,7 +18,7 @@ const Pagination = ({ activePage, pages, maxButtons, onPageSelected }) => {
 
   const generatePage = (page) => {
     return (
-      <span className={`${(page === activePage) ? 'active' : ''} pagination-item`} active={page === activePage} key={page} onClick={(e) => {
+      <span className={`${(page === activePage) ? 'active' : ''} pagination-item`} key={page} onClick={(e) => {
           activePage;
           e.preventDefault();
           onPageSelected(page);

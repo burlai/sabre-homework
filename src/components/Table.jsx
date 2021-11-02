@@ -55,7 +55,7 @@ const Table = ({ headers, data, activePage, pageSize, pageSumText, totalSumText 
 
 Table.propTypes = {
     activePage: PropTypes.number,
-    data: PropTypes.array.isRequired,
+    data: PropTypes.array,
     filter: PropTypes.object,
     headers: PropTypes.array.isRequired,
     pageSize: PropTypes.number,

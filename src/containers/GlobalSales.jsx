@@ -47,6 +47,7 @@ class GlobalSales extends Component {
 
     onResetSearch() {
         this.setState({ filter: this.resetFilter() });
+        this.props.getSales();
     }
 
     onPaginationChange(activePage) {
