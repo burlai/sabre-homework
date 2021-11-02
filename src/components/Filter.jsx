@@ -54,7 +54,7 @@ class Filter extends Component {
         return (
             <section className="sales-filter">
                 <form submit={this.onSubmit}>
-                    <input className="input input-company" type="text" value={this.state.data.company} onChange={this.handleChange} id="company" placeholder="Company" />
+                    <input className="input input-company mb-10" type="text" value={this.state.data.company} onChange={this.handleChange} id="company" placeholder="Company" />
                     <label className="label label-sales" htmlFor="minimum-sales">Minimum Sales ($)</label>
                     <RangeInput value={this.state.data.minimumSales}
                                 data={this.props.data}

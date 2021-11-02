@@ -14,7 +14,7 @@ const TableAverage = ({ data, averageNumberText, averageSumText, boundaryNumber 
 
     return (
         <section>
-            <table className="table">
+            <table className="table table-small">
                 <tbody>
                     <tr>
                         <td>{(averageSumText !== undefined) ? averageSumText : 'Number of Elements'}</td>
@@ -23,6 +23,10 @@ const TableAverage = ({ data, averageNumberText, averageSumText, boundaryNumber 
                     <tr>
                         <td>{(averageNumberText !== undefined) ? averageNumberText : 'Average'}</td>
                         <td>{(dataToRender.length > 0) ? dataToRender.length : '-'}</td>
+                    </tr>
+                    <tr>
+                        <td>Top performers %</td>
+                        <td>{(dataToRender.length > 0) ? `${(dataToRender.length / data.length * 100)}%` : '-'}</td>
                     </tr>
                 </tbody>
             </table>

@@ -35,7 +35,7 @@ const Table = ({ headers, data, activePage, pageSize, pageSumText, totalSumText 
                     {tableData}
                 </tbody>
                 {(pageSumText !== undefined && totalSumText !== undefined) ? (
-                    <tfoot>
+                    <tfoot className="text-dark-gray">
                         <tr>
                             <td>{pageSumText}</td>
                             <td></td>
