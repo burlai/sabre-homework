@@ -463,3 +463,36 @@ input[type=range]:focus::-ms-fill-upper {
 .text-dark-gray {
   color: #404247;
 }
+
+.winner-icon {
+  position: relative;
+}
+
+.winner-icon:before {
+  content: '';
+    position: absolute;
+    background-color: #f9e466;
+    width: 27px;
+    height: 27px;
+    border-radius: 27px;
+    left: 2px;
+    top: 6px;
+	  animation: color_change 2s infinite alternate;
+}
+
+.winner-icon:after {
+  content: '';
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  left: 8px;
+  top: 13px;
+  background: url("../src/img/trophy.png");
+  background-size: cover;
+  z-index: 10;
+}
+
+@keyframes color_change {
+	from { background-color: #e7cc00; }
+	to { background-color: #fd9484; }
+}

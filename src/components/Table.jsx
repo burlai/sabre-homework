@@ -15,7 +15,11 @@ const Table = ({ headers, data, activePage, pageSize, pageSumText, totalSumText 
         delete row.id;
         return (
             <tr key={idx}>
-                {(Object.values(row)).map((field) => (<td key={field}>{(typeof field === 'number') ? Math.ceil(field) : field}</td>))}
+                {(row.sales >= 800) ? <td className="winner-icon"></td> : <td></td>}
+                {(Object.values(row)).map((field) => (
+                <td key={field}>
+                    {(typeof field === 'number') ? Math.ceil(field) : field}
+                </td>))}
             </tr>
         );
     });
@@ -30,8 +34,9 @@ const Table = ({ headers, data, activePage, pageSize, pageSumText, totalSumText 
     return (
         <section>
             <table className="table">
+            <col style={{width: 30}} />
                 <tbody>
-                    <tr>{tableHeader}</tr>
+                    <tr><th></th>{tableHeader}</tr>
                     {tableData}
                 </tbody>
                 {(pageSumText !== undefined && totalSumText !== undefined) ? (
@@ -39,10 +44,12 @@ const Table = ({ headers, data, activePage, pageSize, pageSumText, totalSumText 
                         <tr>
                             <td>{pageSumText}</td>
                             <td></td>
+                            <td></td>
                             <td>{Math.ceil(pageSum)}</td>
                         </tr>
                         <tr>
                             <td>{totalSumText}</td>
+                            <td></td>
                             <td></td>
                             <td>{Math.ceil(totalSum)}</td>
                         </tr>
