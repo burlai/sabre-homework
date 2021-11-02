@@ -102,8 +102,8 @@ code {
 
 .input-sales {
   position: relative;
-  display: block;
   width: 100px;
+  float: right;
 }
 
 .button-sales {
@@ -361,4 +361,86 @@ code {
 
 .p-relative {
   position: relative;
+}
+
+.range-input {
+  width: 60%;
+}
+
+input[type=range] {
+  height: 20px;
+  -webkit-appearance: none;
+  margin: 10px 0;
+  display: inline-block;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  height: 5px;
+  cursor: pointer;
+  background: #419BB5;
+  border-radius: 5px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  height: 22px;
+  width: 22px;
+  border-radius: 15px;
+  background: #419BB5;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -9px;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #419BB5;
+}
+
+input[type=range]::-moz-range-track {
+  height: 5px;
+  cursor: pointer;
+  background: #419BB5;
+  border-radius: 1px;
+}
+
+input[type=range]::-moz-range-thumb {
+  height: 22px;
+  width: 22px;
+  border-radius: 15px;
+  background: #419BB5;
+  cursor: pointer;
+}
+
+input[type=range]::-ms-track {
+  height: 5px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+input[type=range]::-ms-fill-lower {
+  background: #419BB5;
+  border-radius: 2px;
+}
+
+input[type=range]::-ms-fill-upper {
+  background: #419BB5;
+  border-radius: 2px;
+}
+
+input[type=range]::-ms-thumb {
+  margin-top: 1px;
+  height: 22px;
+  width: 22px;
+  border-radius: 15px;
+  background: #419BB5;
+  cursor: pointer;
+}
+
+input[type=range]:focus::-ms-fill-lower {
+  background: #419BB5;
+}
+
+input[type=range]:focus::-ms-fill-upper {
+  background: #419BB5;
 }

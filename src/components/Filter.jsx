@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import RangeInput from './RangeInput';
+
 const initialState = (filter) => {
     return {
         data: {
@@ -54,7 +56,11 @@ class Filter extends Component {
                 <form submit={this.onSubmit}>
                     <input className="input input-company" type="text" value={this.state.data.company} onChange={this.handleChange} id="company" placeholder="Company" />
                     <label className="label label-sales" htmlFor="minimum-sales">Minimum Sales ($)</label>
-                    <input className="input input-sales" type="number" value={this.state.data.minimumSales} onChange={this.handleChange} form={this} id="minimumSales" />
+                    <RangeInput value={this.state.data.minimumSales}
+                                data={this.props.data}
+                                onChange={this.handleChange}
+                                id="minimumSales"
+                                textClassName="input input-sales" />
                     <button className="button button-sales" onClick={() => this.onSearch()}><i className="icon-magnifier pr-1" />FILTER RESULTS</button>
                 </form>
             </section>
@@ -63,6 +69,7 @@ class Filter extends Component {
 }
 
 Filter.propTypes = {
+    data: PropTypes.array,
     filter: PropTypes.object.isRequired,
     onResetSearch: PropTypes.func.isRequired,
     onSearch: PropTypes.func.isRequired
